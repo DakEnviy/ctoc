@@ -1,6 +1,6 @@
-# ctoc README
+# skyweather README
 
-This is the README for your extension "ctoc". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "skyweather". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 

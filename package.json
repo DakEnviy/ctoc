@@ -1,7 +1,7 @@
 {
-	"name": "ctoc",
-	"displayName": "ctoc",
-	"description": "Count Things Of Code",
+	"name": "skyweather",
+	"displayName": "skyweather",
+	"description": "The simple extension for watching the weather",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.45.0"
@@ -10,13 +10,13 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:ctoc.helloWorld"
+        "onCommand:skyweather.helloWorld"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "ctoc.helloWorld",
+				"command": "skyweather.helloWorld",
                 "title": "Hello World"
 			}
 		]
