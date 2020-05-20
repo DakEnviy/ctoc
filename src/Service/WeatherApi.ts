@@ -23,7 +23,7 @@ export class WeatherApi {
         })
         .catch(function(error) {
             if (error.response) {
-                throw Error("Problems on server");
+                throw Error("Some problems in the server");
             } else if (error.request) {
             throw Error("Invalid config parameters");
             } else {
