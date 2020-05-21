@@ -1,10 +1,11 @@
-import {WeatherApi} from "./weatherApi";
+import { WeatherApi } from "./weatherApi";
+import { settings } from "../settings";
 
 export class Weather {
     private temperature: number|null = null;
 
-    private async update(location: string) {
-        this.temperature = (await WeatherApi.makeRequest(location)).data.main.temp;
+    private async update() {
+        this.temperature = (await WeatherApi.makeRequest(settings.location)).data.main.temp;
     }
 
     public getTemperature(): number|null {
