@@ -1,4 +1,4 @@
-import { WeatherApi } from "./weatherApi";
+import { WeatherApi } from "./WeatherApi";
 import { settings } from "../settings";
 
 export class Weather {
