@@ -1,21 +1,26 @@
 import { ExtensionContext, commands, window } from 'vscode';
 
 import { settings } from './settings';
+import { statusBar } from './components/WeatherStatusBar';
 import { getCommandName } from './utils/commands';
 
-export function activate(context: ExtensionContext) {
+export function activate({ subscriptions }: ExtensionContext) {
 
     console.log('Congratulations, your extension "skyweather" is now active!');
 
-    context.subscriptions.push(commands.registerCommand(getCommandName('updateSettings'), () => {
+    subscriptions.push(statusBar.bar);
+
+    settings.onUpdate(() => {
+        statusBar.update();
+    });
+
+    subscriptions.push(commands.registerCommand(getCommandName('updateSettings'), () => {
         settings.updateSettings();
     }));
 
-    let disposable = commands.registerCommand('skyweather.helloWorld', () => {
-        window.showInformationMessage('Hello World from skyweather!');
-    });
-
-    context.subscriptions.push(disposable);
+    subscriptions.push(commands.registerCommand(getCommandName('updateLocation'), () => {
+        settings.updateLocation();
+    }));
 }
 
 export function deactivate() {}

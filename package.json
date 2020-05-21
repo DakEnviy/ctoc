@@ -16,13 +16,14 @@
     "contributes": {
         "commands": [
             {
-                "command": "skyweather.helloWorld",
-                "title": "Hello World"
-            },
-            {
                 "command": "skyweather.updateSettings",
                 "category": "SkyWeather",
                 "title": "Update Settings"
+            },
+            {
+                "command": "skyweather.updateLocation",
+                "category": "SkyWeather",
+                "title": "Update Location"
             }
         ]
     },
