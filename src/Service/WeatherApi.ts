@@ -1,27 +1,19 @@
 import { apiKey } from "../config";
 import axios, { AxiosResponse } from "axios";
-
-interface WeatherInterface {
-    
-}
+import {WeatherResponse} from "../interfaces/weatherModel";
 
 export class WeatherApi {
-    private request: string = 'https://api.openweathermap.org/data/2.5/weather/';
-    private jsonWeather: AxiosResponse<any> | null;
+    private static request: string = 'https://api.openweathermap.org/data/2.5/weather/';
 
-    constructor() {
-        this.jsonWeather = null;
-    }
-
-    public async getResponse(location: string, units: string = "metric") {
-        this.jsonWeather = await axios.get(this.request, {
+    public static async makeRequest(location: string, units: string = "metric"): Promise<WeatherResponse> {
+        return (await axios.get<WeatherResponse>(this.request, {
             params: {
                 q: location,
                 units: units,
                 appid: apiKey,
             }
         })
-        .catch(function(error) {
+        .catch(function(error: { response: any; request: any; }) {
             if (error.response) {
                 throw Error("Some problems in the server");
             } else if (error.request) {
@@ -29,14 +21,6 @@ export class WeatherApi {
             } else {
                 throw Error("Unknown error");
             }
-        })
-        ; 
-    }
-
-    public getTemperature(): string {
-        if (this.jsonWeather === null) {
-            throw new Error("Response is empty");
-        }
-        return JSON.stringify(this.jsonWeather.data.main.temp);
+        })).data;
     }
 }
