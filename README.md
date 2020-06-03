@@ -1,65 +1,69 @@
-# skyweather README
+# SkyWeather Plugin for Visual Srudio Code
 
-This is the README for your extension "skyweather". After writing up a brief description, we recommend including the following sections.
+![](https://github.com/DakEnviy/skyweather/workflows/.github/workflows/ci.yml/badge.svg)
 
-## Features
+You can see different parameters of current weather in any city you want
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Installation from repository
 
-For example if there is an image subfolder under your extension project workspace:
+```
+git clone https://github.com/DakEnviy/skyweather.git
+cd skyweather
+npm i
+npm i vsce -g
+vsce package .
+```
 
-\!\[feature X\]\(images/feature-x.png\)
+## Quickstart
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Click the `No location` button in status bar and enter location in format `{city name}` or `{city name},{contry code}`
+
+![Example](images/example.gif)
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+For installation via github download [Node.js](https://nodejs.org)
 
-## Extension Settings
+## Features
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+* Showing temperature in °C
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
+Showing temperature and setting location
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
 
 -----------------------------------------------------------------------------------------------------------
 
-## Working with Markdown
+## Extension Settings
 
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+Main settings of the plugin (**required**):
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
+* **[settings.location](https://github.com/DakEnviy/skyweather#location)**: set location
+* [settings.units](https://github.com/DakEnviy/skyweather#units): set metrics of temperature
 
-### For more information
+### Location
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+```
+Moscow
+Moscow,Ru
+```
 
-**Enjoy!**
+You can find country code from [Wikipedia](https://wikipedia.org/wiki/ISO_3166-1#Current_codes)
+
+### Units
+
+```
+imperial // °F
+metric // °C
+default // K
+```
+
+
+<!-- ## Known Issues
+
+Calling out known issues can help limit users opening duplicate issues against your extension. -->
+
+
