@@ -2,6 +2,7 @@ import { ExtensionContext, commands, window } from 'vscode';
 
 import { settings } from './settings';
 import { statusBar } from './components/WeatherStatusBar';
+import { weatherService } from './service/weather';
 import { getCommandName } from './utils/commands';
 
 export function activate({ subscriptions }: ExtensionContext) {
@@ -11,6 +12,10 @@ export function activate({ subscriptions }: ExtensionContext) {
     subscriptions.push(statusBar.bar);
 
     settings.onUpdate(() => {
+        weatherService.update();
+    });
+
+    weatherService.onUpdate(() => {
         statusBar.update();
     });
 
