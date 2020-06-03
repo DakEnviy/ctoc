@@ -1,25 +1,27 @@
 import { config } from "../config";
-import axios, { AxiosResponse } from "axios";
-import {WeatherResponse} from "../interfaces/weatherModel";
+import axios from "axios";
+import { WeatherInterface } from "../interfaces/weatherModel";
 
 export class WeatherApi {
     private static request: string = 'https://api.openweathermap.org/data/2.5/weather/';
 
-    public static async makeRequest(location: string|undefined, units: string = "metric"): Promise<WeatherResponse> {
-        return (await axios.get<WeatherResponse>(this.request, {
+    public static async makeRequest(location: string|undefined, units: string = "metric"): Promise<WeatherInterface> {
+        return (await axios.get<WeatherInterface>(this.request, {
             params: {
                 q: location,
                 units: units,
                 appid: config.apiKey,
             }
-        }).catch(function(error: { response: any; request: any; }) {
-            if (error.response) {
-                throw Error("Some problems in the server");
-            } else if (error.request) {
-                throw Error("Invalid config parameters");
-            } else {
-                throw Error("Unknown error");
-            }
-        })).data;
+        })
+            .then((response) => response.data)
+            .catch(function(error) {
+                if (error.response) {
+                    throw Error(error.response.data.message);
+                } else if (error.request) {
+                    throw Error("Some server problems");
+                } else {
+                    throw Error("Unknown error");
+                }
+            }));
     }
 }

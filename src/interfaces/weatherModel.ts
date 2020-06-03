@@ -1,8 +1,4 @@
-export interface WeatherResponse {
-    data: WeatherInterface
-}
-
-interface WeatherInterface {
+export interface WeatherInterface {
     main: WeatherMainProperties    
 }
 
