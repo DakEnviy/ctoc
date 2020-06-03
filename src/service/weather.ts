@@ -8,7 +8,7 @@ export class Weather {
 
     private errorMessage: string | null = null;
     private temperature: number | null = null;
-    private city: string|null = null;
+    private city: string | null = null;
 
     private updateTask?: NodeJS.Timeout;
     private onUpdateCallback?: () => void;
@@ -54,7 +54,7 @@ export class Weather {
         return this.temperature;
     }
     
-    public getCity(): string|null {
+    public getCity(): string | null {
         return this.city;
     }
 
