@@ -1,7 +1,8 @@
-import { window, StatusBarAlignment, ExtensionContext } from "vscode";
+import { window, StatusBarAlignment, ExtensionContext } from 'vscode';
 
-import { settings } from "../settings";
-import { getCommandName } from "../utils/commands";
+import { settings } from '../settings';
+import { getCommandName } from '../utils/commands';
+import { weatherService } from '../service/weather';
 
 export class WeatherStatusBar {
 
@@ -16,7 +17,16 @@ export class WeatherStatusBar {
             this.show('No location', 'Update Settings', 'updateSettings');
 
         } else {
-            this.show('🌡 20 ℃');
+            const errorMessage = weatherService.getErrorMessage();
+            const temperature = weatherService.getTemperature();
+
+            if (errorMessage) {
+                this.show(`Error: ${errorMessage}`, 'Update Settings', 'updateSettings');
+            } else if (temperature) {
+                this.show(`🌡 ${temperature} ℃`, `City: ${settings.location}`, 'updateSettings');
+            } else {
+                this.show('Unknown state. Try to update settings.', 'Update Settings', 'updateSettings');
+            }
         }
     }
 
