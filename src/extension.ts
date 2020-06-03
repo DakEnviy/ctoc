@@ -9,7 +9,7 @@ export function activate({ subscriptions }: ExtensionContext) {
 
     console.log('Congratulations, your extension "skyweather" is now active!');
 
-    subscriptions.push(statusBar.bar);
+    weatherService.start();
 
     settings.onUpdate(() => {
         weatherService.update();
@@ -18,6 +18,8 @@ export function activate({ subscriptions }: ExtensionContext) {
     weatherService.onUpdate(() => {
         statusBar.update();
     });
+
+    subscriptions.push(statusBar.bar);
 
     subscriptions.push(commands.registerCommand(getCommandName('updateSettings'), () => {
         settings.updateSettings();
@@ -28,4 +30,6 @@ export function activate({ subscriptions }: ExtensionContext) {
     }));
 }
 
-export function deactivate() {}
+export function deactivate() {
+    weatherService.stop();
+}

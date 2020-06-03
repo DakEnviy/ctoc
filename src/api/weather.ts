@@ -11,7 +11,7 @@ export interface WeatherApiResponse {
 export class WeatherApi {
     private static request: string = 'https://api.openweathermap.org/data/2.5/weather/';
 
-    public static async makeRequest(location?: string, units: string = 'metric'): Promise<WeatherApiResponse> {
+    public static async makeRequest(location: string, units: string = 'metric'): Promise<WeatherApiResponse> {
         try {
             const response = await axios.get<WeatherApiResponse>(WeatherApi.request, {
                 params: {

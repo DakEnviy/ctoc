@@ -17,9 +17,16 @@ export class WeatherStatusBar {
             this.show('No location', 'Update Settings', 'updateSettings');
 
         } else {
+            const errorMessage = weatherService.getErrorMessage();
             const temperature = weatherService.getTemperature();
 
-            this.show(`🌡 ${temperature} ℃`);
+            if (errorMessage) {
+                this.show(`Error: ${errorMessage}`, 'Update Settings', 'updateSettings');
+            } else if (temperature) {
+                this.show(`🌡 ${temperature} ℃`, `City: ${settings.location}`, 'updateSettings');
+            } else {
+                this.show('Unknown state. Try to update settings.', 'Update Settings', 'updateSettings');
+            }
         }
     }
 
