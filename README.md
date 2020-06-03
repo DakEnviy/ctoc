@@ -1,4 +1,4 @@
-# SkyWeather Plugin for Visual Srudio Code
+# SkyWeather Plugin for Visual Studio Code
 
 ![](https://github.com/DakEnviy/skyweather/workflows/.github/workflows/ci.yml/badge.svg)
 
@@ -30,7 +30,7 @@ For installation via github download [Node.js](https://nodejs.org)
 
 ## Release Notes
 
-### 1.0.0
+### 1.0
 
 Showing temperature and setting location
 
