@@ -6,6 +6,10 @@ export interface WeatherApiResponse {
     main: {
         temp: number,
     },
+    sys: {
+        country: string,
+    },
+    name: string,
 }
 
 export class WeatherApi {
