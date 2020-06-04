@@ -9,6 +9,7 @@ export class Weather {
     private errorMessage: string | null = null;
     private temperature: number | null = null;
     private city: string | null = null;
+    private iconCode: string | null = null;
 
     private updateTask?: NodeJS.Timeout;
     private onUpdateCallback?: () => void;
@@ -33,11 +34,13 @@ export class Weather {
                 this.errorMessage = null;
                 this.temperature = Math.round(response.main.temp);
                 this.city = response.name + ',' + response.sys.country;
+                this.iconCode = response.weather[0].icon;
 
             } catch (err) {
                 this.errorMessage = err.message;
                 this.temperature = null;
                 this.city = null;
+                this.iconCode = null;
 
                 window.showErrorMessage(`SkyWeather error: ${err.message}`);
             }
@@ -56,6 +59,10 @@ export class Weather {
     
     public getCity(): string | null {
         return this.city;
+    }
+
+    public getIconCode(): string | null {
+        return this.iconCode;
     }
 
     public onUpdate(callback: Weather['onUpdateCallback']) {
