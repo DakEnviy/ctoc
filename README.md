@@ -30,9 +30,15 @@ For installation via github download [Node.js](https://nodejs.org)
 
 ## Release Notes
 
+### 1.1
+
+- Force weather update
+- Tests for everything
+- Receiving city name from API
+
 ### 1.0
 
-Showing temperature and setting location
+- Showing temperature and setting location
 
 
 -----------------------------------------------------------------------------------------------------------
@@ -42,7 +48,6 @@ Showing temperature and setting location
 Main settings of the plugin (**required**):
 
 * **[settings.location](https://github.com/DakEnviy/skyweather#location)**: set location
-* [settings.units](https://github.com/DakEnviy/skyweather#units): set metrics of temperature
 
 ### Location
 
@@ -52,14 +57,6 @@ Moscow,Ru
 ```
 
 You can find country code from [Wikipedia](https://wikipedia.org/wiki/ISO_3166-1#Current_codes)
-
-### Units
-
-```
-imperial // °F
-metric // °C
-default // K
-```
 
 
 <!-- ## Known Issues
