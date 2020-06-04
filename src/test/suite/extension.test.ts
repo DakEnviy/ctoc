@@ -17,6 +17,7 @@ suite('Extension Test Suite', () => {
 
     test('Weather service test', async () => {
         const weatherResponseMock: WeatherApiResponse = {
+            weather: [{icon: '01d'}],
             main: {
                 temp: 13,
             },

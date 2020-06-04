@@ -3,9 +3,9 @@ import axios from 'axios';
 import { config } from '../config';
 
 export interface WeatherApiResponse {
-    weather: [{
+    weather: Array<{
         icon: string,
-    }],
+    }>,
     main: {
         temp: number,
     },
