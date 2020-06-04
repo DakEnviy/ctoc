@@ -28,6 +28,10 @@ export function activate({ subscriptions }: ExtensionContext) {
     subscriptions.push(commands.registerCommand(getCommandName('updateLocation'), () => {
         settings.updateLocation();
     }));
+
+    subscriptions.push(commands.registerCommand(getCommandName('forceUpdateWeather'), () => {
+        weatherService.update();
+    }));
 }
 
 export function deactivate() {
