@@ -3,6 +3,7 @@ import { window, StatusBarAlignment, ExtensionContext } from 'vscode';
 import { settings } from '../settings';
 import { getCommandName } from '../utils/commands';
 import { weatherService } from '../service/weather';
+import { getIcon } from '../utils/icons';
 
 export class WeatherStatusBar {
 
@@ -20,11 +21,12 @@ export class WeatherStatusBar {
             const errorMessage = weatherService.getErrorMessage();
             const temperature = weatherService.getTemperature();
             const city = weatherService.getCity();
+            const icon = getIcon(weatherService.getIconCode());
 
             if (errorMessage) {
                 this.show(`Error: ${errorMessage}`, 'Update Settings', 'updateSettings');
             } else if (temperature) {
-                this.show(`🌡 ${temperature} ℃`, `City: ${city}`, 'updateSettings');
+                this.show(`${icon} ${temperature} ℃`, `City: ${city}`, 'updateSettings');
             } else {
                 this.show('Unknown state. Try to update settings.', 'Update Settings', 'updateSettings');
             }
