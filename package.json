@@ -24,6 +24,11 @@
                 "command": "skyweather.updateLocation",
                 "category": "SkyWeather",
                 "title": "Update Location"
+            },
+            {
+                "command": "skyweather.forceUpdateWeather",
+                "category": "SkyWeather",
+                "title": "Force Update Weather"
             }
         ]
     },
