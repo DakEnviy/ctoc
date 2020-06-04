@@ -4,7 +4,7 @@ import { WeatherApi } from "../api/weather";
 import { settings } from "../settings";
 
 export class Weather {
-    private static updateInterval: number = 10 * 1000;
+    private static updateInterval: number = 5 * 60 * 1000; // 5 minutes
 
     private errorMessage: string | null = null;
     private temperature: number | null = null;
