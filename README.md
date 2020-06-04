@@ -26,9 +26,14 @@ For installation via github download [Node.js](https://nodejs.org)
 
 ## Features
 
-* Showing temperature in °C
+* Display temperature in °C
+* Display icon of current weather
 
 ## Release Notes
+
+### 2.0
+
+- Display icon of current weather
 
 ### 1.1
 
@@ -57,10 +62,5 @@ Moscow,Ru
 ```
 
 You can find country code from [Wikipedia](https://wikipedia.org/wiki/ISO_3166-1#Current_codes)
-
-
-<!-- ## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension. -->
 
 
